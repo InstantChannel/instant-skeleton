@@ -48,6 +48,7 @@
   "config": {
     "node_port": 8080,
     "dev_port": 8081,
+    "perf_port": 8082,
     "title": "Instant Skeleton | by DimensionSoftware.com",
     "subdomain": "develop.com",
     "cacheUrls": [
@@ -92,6 +93,7 @@
   "dependencies": {
     "LiveScript": "^1.3.1",
     "co": "^4.1.0",
+    "controlport-perf": "^2.0.0",
     "dotenv": "^0.4.0",
     "engine.io": "^1.4.3",
     "famous": "^0.3.4",
