@@ -2,7 +2,7 @@
 require! {
   dotenv
   shelljs
-  #'controlport-perf': perf
+  'controlport-perf': perf
 }
 
 # supervise instances of App
@@ -20,8 +20,8 @@ dotenv.load! # load local environment vars from .env
 # main
 # ---------
 console.log "\n[1;37m,.._________[0;m"
-#p = perf!
-#  ..listen process.env.npm_package_config_perf_port
+p = perf!
+  ..listen process.env.npm_package_config_perf_port
 restart! # initial b00t-up!
 
 process.on \SIGHUP -> restart!
