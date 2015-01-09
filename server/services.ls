@@ -1,29 +1,17 @@
 
 require! {
   \koa
-  \koa-router
   \level-live-stream
 }
+
+# TODO services are a work-in-progress
+
 app = koa!
 
-
-## TODO flesh out TODO service
-@session =
-  find: (params, cb) ->
-  get: (id, params, cb) -> console.log \GET!
-  create: (data, params, cb) ->
-  update: (id, data, params, cb) ->
-  patch: (id, data, params, cb) ->
-  remove: (id, params, cb) ->
-  setup: (app, path) ->
-
-
-
-#---------
-@middleware = (next) ->*
+@router = (next) ->*
   # TODO realtime service router
-  koa-router app
-
+  # expose each service over 'service' channel
+  yield next
 
 @init = (sdb, primus) ->
   level-live-stream.install sdb
@@ -48,10 +36,12 @@ app = koa!
           sdb.put spark.request.key, JSON.stringify data
 
 
-# expose each service over 'service' channel
-for k,v of module.exports
-  unless k in <[ middleware init ]>
-    for verb of v
-      console.log verb, k[verb]
-      app[verb] = k[verb]
-
+## TODO flesh out TODO service
+@session =
+  find: (params, cb) ->
+  get: (id, params, cb) ->
+  create: (data, params, cb) ->
+  update: (id, data, params, cb) ->
+  patch: (id, data, params, cb) ->
+  remove: (id, params, cb) ->
+  setup: (app, path) ->

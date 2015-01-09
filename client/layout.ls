@@ -1,10 +1,8 @@
 
 require! {
-  react: {create-element}:React
-  immutable: window.Immutable
-  \../shared/react/App
-  \../shared/features
   \./stylus/master
+  \../shared/features
+  immutable: window.Immutable
 }
 
 dimension!
@@ -25,10 +23,6 @@ window.notify = (title, obj={body:''}) -> # to better use desktop notifications
 
 # main
 # ---------
-# configure react
-app = create-element App, { path: window.location.pathname, locals: window.locals }
-window.app = React.render app, (document.get-elements-by-tag-name \body .0)
-
 # configure primus
 primus = window.primus = Primus.connect!
   ..on \close ->
