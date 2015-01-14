@@ -48,7 +48,6 @@ Building your SEO-friendly, realtime application is simple: add **Pages** <small
 SERVER
 
 * **Gulp** -- http://gulpjs.com
-    * **livereload** -- https://github.com/vohof/gulp-livereload
     * **nodemon** --  https://github.com/JacksonGariety/gulp-nodemon
     * **webpack** -- https://github.com/shama/gulp-webpack
 * **Koa** -- http://koajs.com
@@ -67,6 +66,9 @@ SHARED
 * **React** -- http://facebook.github.io/react/docs/getting-started.html
     * **react router component** -- https://github.com/STRML/react-router-component
     * **immutable.js** -- https://github.com/facebook/immutable-js
+    * **omniscient** -- https://omniscientjs.github.io/
+    * **hot-loader** -- http://gaearon.github.io/react-hot-loader/
+>>>>>>> master
 * **Primus** -- https://github.com/primus/primus
     * **engine.io** -- https://github.com/Automattic/engine.io
     * **multiplex** -- https://github.com/cayasso/primus-multiplex
@@ -102,6 +104,19 @@ potential of HTML5 and Node.JS.  [Start hacking now!](https://github.com/Dimensi
        + We are streaming functional [LiveScript](http://livescript.net): write less code with fewer bugs.
        + Isomorphic Web Components leveraging [React](http://facebook.github.io/react/docs/getting-started.html) for data-binding.
 
+2. How easy is this to debug &amp; reason about?
+
+       + All variables are const
+       + Immutable.JS persistent data structures
+       + --harmony generators provide useful stack traces
+       + Check out our [perf](https://github.com/DimensionSoftware/instant-skeleton/tree/perf) branch for runtime profiling
+
+3. How fast is development?
+
+       + Instant live reloading
+       + Zero browser plugins required
+       + Application state is preserved across reloads
+>>>>>>> master
 
 ## Contributors &amp; Idea Factories
 

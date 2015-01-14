@@ -50,9 +50,13 @@ html(manifest=(features.offline ? '/manifest.appcache' : undefined))
       link(href="//#{subdomain}:#{dev_port}/builds/site.css", rel='stylesheet', type='text/css')
 
   body
-    //- render page soon as possible
-    block body
-      != body
+    //- server-side render in production (SEO)
+    if production
+      block body
+        != body
+
+    script.
+      window.locals=!{delete(locals.body) && JSON.stringify(locals)};
 
     //- boot app bundle (using cdn in production)
     script(src="#{cacheUrls[2]}/vendor/primus.js?#{changeset}")
@@ -60,7 +64,3 @@ html(manifest=(features.offline ? '/manifest.appcache' : undefined))
       script(src="#{cacheUrls[3]}/builds/client.js?#{changeset}")
     else
       script(src="//#{subdomain}:#{dev_port}/builds/client.js?#{changeset}")
-      script(src="//#{subdomain}:#{dev_port}/webpack-dev-server.js")
-
-    script.
-      window.locals=!{delete(locals.body) && JSON.stringify(locals)};
