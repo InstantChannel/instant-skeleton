@@ -61,7 +61,7 @@ module.exports =
         ..use middleware.jade             # use minimalistic jade layout (escape-hatch from react)
         ..use middleware.etags            # auto etag every page for caching
         ..use pages                       # apply pages
-        ..use services.router             # apply realtime services
+        ..use services.middleware         # apply realtime services
 
       # config environment
       if env isnt \test then @app.use koa-logger!
